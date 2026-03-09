@@ -3,42 +3,69 @@
 {
     const foodEmojis = ['☕', '🍵', '🎃', '🐮', '🍴', '🍕', '🍔', '🍟', '🍗', '🍖', '🍝', '🍛', '🍤', '🍱', '🍣', '🍥', '🍙', '🍘', '🍚', '🍜', '🍲', '🍢', '🍡', '🍳', '🍞', '🍩', '🍮', '🍦', '🍨', '🍧', '🎂', '🍰', '🍪', '🍫', '🍬', '🍭', '🍯', '🍎', '🍏', '🍊', '🍋', '🍒', '🍇', '🍉', '🍓', '🍑', '🍈', '🍌', '🍐', '🍍', '🍠', '🍆', '🍅', '🌽', '🐓']
 
+    const emojiElement = document.querySelectorAll('.emojiSpan');
+    const startButton = document.querySelector('#start');
+    const goCopyButton = document.querySelector('#goCopy');
+    const returnCopyButton = document.querySelector('#returnCopy');
+    const copyButton = document.querySelectorAll('.copyButton');
 
-    const goElement = document.querySelector('.go');
-    const returnElement = document.querySelector('.return');
-    const button = document.querySelector('button');
-
-
-
+    copyButton.forEach(el => el.disabled = true);
+    
     function randomEmoji(count, delay) {
-        const randomNumber = Math.floor(Math.random() * foodEmojis.length);
-        const emoji = foodEmojis[randomNumber];
+        return new Promise((resolve) => {
 
-        console.log("実行", count, emoji);
+            function loop(count, delay) {
+                const randomNumber = Math.floor(Math.random() * foodEmojis.length);
+                const emoji = foodEmojis[randomNumber];
 
-        goElement.textContent = `お昼休憩に入ります${emoji}`;
-        returnElement.textContent = `戻りました${emoji}`;
+                emojiElement.forEach(el => el.textContent = emoji);
 
-        if (count <= 1) {
-            button.disabled = false;
-            return;
-        }
+                if (count <= 1) {
+                    startButton.disabled = false;
+                    resolve();
+                    return;
+                }
 
-        const nextDelay = Math.max(delay * 0.75, 10);
+                const nextDelay = Math.max(delay * 0.75, 10);
 
-        setTimeout(() => {
-            randomEmoji(count - 1, nextDelay);
-        }, delay);
+                setTimeout(() => {
+                    loop(count - 1, nextDelay);
+                }, delay);
+            }
+
+            loop(count, delay);
+        })
 
     }
 
-    button.addEventListener('click', () => {
-        button.disabled = true;
-        randomEmoji(10, 900);
+    startButton.addEventListener('click', async () => {
+        copyButton.forEach(el => el.disabled = true);
+
+        startButton.disabled = true;
+        copyButton.forEach((el) => {
+            el.textContent = 'copy';
+        });
+        await randomEmoji(10, 800);
+
+        copyButton.forEach(el => el.disabled = false);
     });
 
 
+    goCopyButton.addEventListener('click', () => {
+        const goText = document.querySelector('#goText').textContent;
+        navigator.clipboard.writeText(goText)
+            .then(() => {
+                goCopyButton.textContent = 'copied!';
+                console.log('copied!')
+            });
+    });
 
+    returnCopyButton.addEventListener('click', () => {
+        const returnText = document.querySelector('#returnText').textContent;
+        navigator.clipboard.writeText(returnText)
+            .then(() => {
+                returnCopyButton.textContent = 'copied!';
+                console.log('copied!')
+            });
+    });
 }
-
-

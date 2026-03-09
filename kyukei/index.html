@@ -4,15 +4,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🎯</text></svg>">
     <title>お昼休憩絵文字ルーレット</title>
- 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: lightgray;
+            margin: 50px auto;
+            width: 400px;
+        }
+
+        section {
+            width: 400px;
+            padding: 5px;
+            border: 1px solid gray;
+            border-radius: 16px;
+            margin-top: -12px;
+            z-index: 1;
+            background-color: #e4e8ed;
+            font-size: 30px;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        button {
+            border: 1px solid gray;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+
+        button:hover{
+            color: gray;
+        }
+
+        button:disabled{
+            color: lightgrey;
+        }
+
+        .title {
+            width: 180px;
+            padding-top: 3px;
+            height: 40px;
+            border-radius: 10px 10px 0 0;
+            border-left: 1px solid gray;
+            border-right: 1px solid gray;
+            border-top: 1px solid gray;
+            background-color: #a0a0a0;
+            z-index: -1;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .contant{
+            margin-left: 5px;
+        }
+
+        .copyButton {
+            height: 60px;
+            width: 60px;
+            margin-left: auto;
+        }
+
+        #start {
+            width: 400px;
+            height: 60px;
+        }
+        footer a{
+            color: gray;
+        }
+        footer a:hover{
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
- 
-    <p class="go">お昼休憩に入ります◻︎</p>
-    <p class="return">戻りました◻︎</p>
-    <button>ルーレット！</button>
+    <header class="title">
+        <p>🍚emoji-ルーレット</p>
+    </header>
+    <section class="container">
+        <div class="contant">
+            <p id="goText">お昼休憩に入ります<span class="emojiSpan">◻︎</span></p>
+            <button class="copyButton" id="goCopy">copy</button>
+        </div>
+        <div class="contant">
+            <p id="returnText">戻りました<span class="emojiSpan">◻︎</span></p>
+            <button class="copyButton" id="returnCopy">copy</button>
+        </div>
+        <button id="start">START</button>
+    </section>
+
+    <footer>
+        <a href="/">back to top↩︎</a>
+    </footer>
+
     <script src="main.js"></script>
 </body>
 
