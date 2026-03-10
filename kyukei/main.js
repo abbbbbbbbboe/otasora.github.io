@@ -43,7 +43,7 @@
 
         startButton.disabled = true;
         copyButton.forEach((el) => {
-            el.textContent = 'copy';
+            el.textContent = 'copy!';
         });
         await randomEmoji(10, 800);
 
@@ -56,7 +56,6 @@
         navigator.clipboard.writeText(goText)
             .then(() => {
                 goCopyButton.textContent = 'copied!';
-                console.log('copied!')
             });
     });
 
@@ -65,7 +64,6 @@
         navigator.clipboard.writeText(returnText)
             .then(() => {
                 returnCopyButton.textContent = 'copied!';
-                console.log('copied!')
             });
     });
 }
