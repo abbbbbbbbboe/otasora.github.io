@@ -72,7 +72,7 @@ input.addEventListener('change', function (event) {
                 if (key === "type") return;
 
                 if (key === "class"){
-                    line += `, class: [${obj.class.map(c => `"${c}`).join(",")}"]`;
+                    line += `, class: [${obj.class.map(c => `"${c}"`).join(",")}]`;
                 } else if (key === "text") {
                     line += `, text: \`${obj.text}\``;
                 } else {
