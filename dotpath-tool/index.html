@@ -46,19 +46,28 @@
                         <input type="number" name="Pheight" id="height" min="0" max="500" width="100" />
                     </div>
                     <div>
-                        <input type="number" id="width" min="0" max="700" width="100"/>
+                        <label for="gridSize">gridSize</label>
+                        <input type="number" name="gridSize" id="gridSizeInput" min="1" max="20" width="100"/>
                     </div>
                     <div>
-                        <input type="number" id="height" min="0" max="500" width="100" />
+                        <label for="lineWidth">lineWidth</label>
+                        <input type="number" name="lineWidth" id="lineWidthInput" min="0" max="500" width="100" />
                     </div>
+                    <div>
+                        <label>stroke color
+                            <input type="color" name="selectColor" id="selectColor" value="#808080">
+                        </label>
+                    </div>
+
+                     <button class="inputButton">
+                    OK!
+                </button>
                     
                     
                 </div>
 
                 
-                <button class="inputButton">
-                    OK!
-                </button>
+               
                 
 
             </div>

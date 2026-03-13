@@ -52,20 +52,21 @@
  }
 
  .construction{
-  background-image: repeating-linear-gradient(45deg, #fff145, #fff145 30px, #000000 30px, #000000 60px);
+  background-image: repeating-linear-gradient(45deg, yellow, yellow 30px, #000000 30px, #000000 60px);
     height: 28px;
     margin-top: 20px;
-    padding-top: 2px;
+    padding-top: 0px;
 }
 .constructionText{
-    background: #e4e8ed;
+    background: yellow;
     width: fit-content;
     padding: 0 5px;
     font-size: 20px;
     line-height: 26px;
     margin: 0 auto;
-    border-radius: 50%;
+    border-radius: 13px;
     font-weight: bold;
+    border: 1px solid #000;
     
 }
  .canvas{
@@ -77,13 +78,9 @@
     border: 1px solid black;
  }
 
- #width,
- #height{
-    width: 80px;
- }
+ 
 
- Button,
- .inputButton {
+ button:not(.inputButton){
      border: 1px solid gray;
      border-radius: 14px;
      height: 60px;
@@ -97,6 +94,19 @@
  .uiPanel{
     display: flex;
     gap: 10px;
+ }
+
+ .inputPanel{
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+ }
+
+ label{
+    font-size: 12px;
+ }
+
+ .inputButton{
+    height: 40px;
  }
 
  Button:hover {
