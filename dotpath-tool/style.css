@@ -22,17 +22,102 @@
      z-index: -1;
      color: #fff;
      text-align: left;
-   
-
-     /* font-size: 15px; */
  }
 
- 
+
+
+
+
 
  .title h1 {
      margin-top: 0px;
      font-size: 16px;
-   text-align: center;
+     text-align: center;
+ }
+
+
+
+ .explanationClass {
+     position: absolute;
+     left: -1px;
+     top: -1px;
+     background-color: #c5cde6;
+     width: 800px;
+     display: flex;
+ }
+
+ #explanation {
+
+     height: 32px;
+
+     border: 1px solid gray;
+     border-radius: 16px 16px 16px 16px;
+
+ }
+
+ #explanationActive {
+
+     height: 440px;
+
+     border: 1px solid gray;
+     border-radius: 16px 16px 16px 16px;
+ }
+
+
+ .explanationOpen {
+     width: 32px;
+     height: 32px;
+     border: 1px solid gray;
+     border-radius: 16px;
+     text-align: center;
+     /* margin-left: auto; */
+     margin-left: -1px;
+     margin-top: -1px;
+     box-sizing: content-box;
+
+ }
+
+ .explanationOpen p {
+     font-size: 20px;
+     font-weight: bold;
+     line-height: 32px;
+    margin-top: -4px;
+    width: 32px;
+ }
+
+ .explanationText {
+    margin-left: 4px;
+    margin-right: 36px;
+ }
+
+ .explanationText h1 {
+     font-size: 20px;
+     font-weight: 100;
+     transform: scale(1, .9);
+     line-height: 32px;
+     letter-spacing: 7px;
+     
+ }
+
+ .explanationText p {
+     display: none;
+ }
+
+ #explanationTextActive p {
+     display: block;
+     margin-bottom: 3px;
+     font-size: 16px;
+     letter-spacing: 2px;
+ }
+
+
+ input {
+     font-size: 12px;
+     text-indent: 10px;
+     width: 50px;
+     box-sizing: border-box;
+     border-radius: 12px;
+     border: 1px solid gray;
  }
 
 
@@ -45,69 +130,120 @@
      margin-top: -12px;
      z-index: 1;
      background-color: #e4e8ed;
-
-   display: flex;
-   justify-content: center;
-      
+     display: flex;
+     justify-content: center;
+     position: relative;
  }
 
- .construction{
-  background-image: repeating-linear-gradient(45deg, yellow, yellow 30px, #000000 30px, #000000 60px);
-    height: 28px;
-    margin-top: 20px;
-    padding-top: 0px;
-}
-.constructionText{
-    background: yellow;
-    width: fit-content;
-    padding: 0 5px;
-    font-size: 20px;
-    line-height: 26px;
-    margin: 0 auto;
-    border-radius: 13px;
-    font-weight: bold;
-    border: 1px solid #000;
-    
-}
- .canvas{
-    margin: 20px auto;
-    
+ .construction {
+     background-image: repeating-linear-gradient(45deg, yellow, yellow 30px, #000000 30px, #000000 60px);
+     height: 28px;
+     margin-top: 20px;
+     padding-top: 0px;
  }
 
- svg{
-    border: 1px solid black;
+ .constructionText {
+     background: yellow;
+     width: fit-content;
+     padding: 0 5px;
+     font-size: 20px;
+     line-height: 26px;
+     margin: 0 auto;
+     border-radius: 13px;
+     font-weight: bold;
+     border: 1px solid #000;
+
  }
 
- 
+ .canvas {
+     margin: 50px auto 5px auto;
+     height: 500px;
+     display: flex;
+     justify-content: center;
+ }
 
- button:not(.inputButton){
+ svg {
+     border: 1px solid black;
+ }
+
+ .dotHr {
+     border-top: 5px dotted white;
+     margin: 35px -20px 15px -20px;
+ }
+
+ .solidHr {
+     border-top: 2px solid white;
+     margin-bottom: 8px;
+ }
+
+
+ button:not(.inputButton, .resetButton, .explanationOpen) {
      border: 1px solid gray;
      border-radius: 14px;
-     height: 60px;
-     width: calc((100% - 200px) / 3);
+     height: inherit;
+     width: calc(100% / 3);
      margin-left: auto;
      margin-right: 0;
-
      font-size: 16px;
  }
 
- .uiPanel{
-    display: flex;
-    gap: 10px;
+ .uiPanel {
+     display: flex;
+     gap: 10px;
+     height: 48px;
  }
 
- .inputPanel{
-display: grid;
-grid-template-columns: repeat(2, 1fr);
+ .inputPanel {
+     /* display: grid; */
+     /* grid-template-columns: repeat(1, 1fr); */
+     display: flex;
+     justify-content: space-between;
+     height: 54px;
+     margin-bottom: 4px;
  }
 
- label{
-    font-size: 12px;
+ .panelInputArea {
+     display: block;
  }
 
- .inputButton{
-    height: 40px;
+ .board,
+ .stroke {
+     display: flex;
+     gap: 12px;
+     height: 24px;
  }
+
+ .board {
+     margin-bottom: 6px;
+ }
+
+ label {
+     font-size: 12px;
+ }
+
+ #selectColor {
+     border: none;
+     height: 24px;
+     width: 52px;
+     background-color: #e4e8ed;
+     box-sizing: border-box;
+ }
+
+
+
+ .inputButton,
+ .resetButton {
+     height: 48px;
+     width: 48px;
+     margin-top: 2px;
+     border-radius: 14px;
+     border: 1px solid gray;
+ }
+
+ .resetButton {
+     width: 60px;
+ }
+
 
  Button:hover {
      color: red;

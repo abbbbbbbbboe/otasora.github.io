@@ -3,6 +3,7 @@ const dlButtonElment = document.querySelector('.dlButton');
 const clearButtonElement = document.querySelector('.clearButton');
 const backButtonElement = document.querySelector('.backButton');
 const UIokButtonElement = document.querySelector('.inputButton');
+const UIresetButtonElement = document.querySelector('.resetButton');
 const panelWidth = document.querySelector('#width');
 const panelHeight = document.querySelector('#height');
 const gridSizeInput = document.querySelector('#gridSizeInput');
@@ -65,10 +66,18 @@ UIokButtonElement.addEventListener("click", () => {
 
     if (!panelWidthValue || isNaN(panelWidthValue)){
         panelWidthValue = 500;
-    }
+    } else if(panelWidthValue >= 700) {
+        panelWidthValue = 700;
+        panelWidth.value = "700";
+    } 
+
      if (!panelHeightValue || isNaN(panelHeightValue)){
         panelHeightValue = 500;
-    }
+    } else if(panelHeightValue >= 500) {
+        panelHeightValue = 500;
+        // panelHeight.setAttribute("value", "500");
+        panelHeight.value = "500";
+    } 
 
     if (!gridSizeInputvalue || isNaN(gridSizeInputvalue)){
         gridSizeInputvalue = 4;
@@ -90,11 +99,30 @@ UIokButtonElement.addEventListener("click", () => {
     createGrid(panelWidthValue, panelHeightValue, gridSizeInputvalue);
     
 });
+
 if (selectColorInput) {
     selectColorInput.addEventListener("input", () => {
     selectColorValue = selectColorInput.value;
 });
 }
+
+UIresetButtonElement.addEventListener("click", () => {
+    // inputボックスの中の値を書き換える
+    panelWidth.value = "500";
+    panelHeight.value = "500";
+    gridSizeInput.value = "4";
+    lineWidthInput.value = "2";
+    selectColorInput.value = "#808080";
+
+    // 実際の状態を書き換える
+    svg.setAttribute("width", "500");
+    svg.setAttribute("height", "500");
+    svg.setAttribute("viewBox", "0 0 500 500");
+
+    lineWidthValue = "2";
+   
+    createGrid(gridWidth, gridHeight, gridSize);
+})
 
 
 //現在描いている線
