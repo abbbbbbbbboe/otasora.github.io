@@ -74,6 +74,7 @@
      margin-left: -1px;
      margin-top: -1px;
      box-sizing: content-box;
+     cursor: pointer;
 
  }
 
@@ -176,8 +177,8 @@
      margin-bottom: 8px;
  }
 
-
- button:not(.inputButton, .resetButton, .explanationOpen) {
+ /* button:not(.inputButton, .resetButton, .explanationOpen) */
+ .uiPanel button{
      border: 1px solid gray;
      border-radius: 14px;
      height: inherit;
